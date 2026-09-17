@@ -38,7 +38,8 @@
         <h2 class="sobre-titulo">Sobre mim</h2>
         <div class="sobre-conteudo">
             <p class="sobre-paragrafo">
-                Olá! Meu nome é Hugo Daniel, tenho 19 anos, sou formado em Meio Ambiente pelo IFMA, mas sou um entusiasta da tecnologia e do desenvolvimento web.
+                Olá! Meu nome é Hugo Daniel, tenho 19 anos, sou formado em Meio Ambiente pelo IFMA, mas sou um
+                entusiasta da tecnologia e do desenvolvimento web.
                 Desde cedo, sempre fui fascinado por computadores e como eles funcionam, o que me levou a explorar o
                 mundo da programação. Atualmente, estou focado em aprimorar minhas habilidades em desenvolvimento
                 Front-End, aprendendo novas linguagens e frameworks para criar experiências web incríveis. Estou sempre
@@ -85,37 +86,40 @@
     <section id="contatos" class="contatos">
         <h2 class="contatos-titulo">Entre em Contato</h2>
 
-        <form class="formulario-contato" id="formulario" onsubmit="enviarWhats(event)">
-        <div class="grupo-form">
-            <input placeholder="Nome" class="campo-form" id="nome">
-        </div>
-        <div class="grupo-form">
-            <textarea class="campo-form" placeholder="Digite sua mensagem" rows="5" id="mensagem"></textarea>
-        </div>
+        <form class="formulario-contato" id="formulario" onsubmit="enviarEmail(event)">
+            <div class="grupo-form">
+                <input placeholder="Nome" class="campo-form" id="nome">
+            </div>
+            <div class="grupo-form">
+                <textarea class="campo-form" placeholder="Digite sua mensagem" rows="5" id="mensagem"></textarea>
+            </div>
 
-        <button type="submit" class="botao-form">Enviar WhatsApp</button>
+            <button type="submit" class="botao-form">Enviar Email</button>
         </form>
 
     </section>
 
     <script>
-        function enviarWhats(event) {
+        function enviarEmail(event) {
             event.preventDefault();
 
             const nome = document.getElementById('nome').value;
             const mensagem = document.getElementById('mensagem').value;
-            const telefone = '5598981140385'
 
-            const texto = `Olá, meu nome é ${nome}, ${mensagem}`
-            const msgFormatada = encodeURIComponent(texto)
+            const email = 'hugodaniel1870@gmail.com';
 
-            const url = `https://wa.me/${telefone}?text=${msgFormatada}`
+            const assunto = 'Contato pelo meu portfólio';
 
-            window.open(url, '_blank')
+            const texto = `Olá, meu nome é ${nome}.
 
+            ${mensagem}`;
+
+            const url = `mailto:${email}?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(texto)}`;
+
+            window.location.href = url;
         }
+    </script>
 
- </script>
 
 
 </body>
